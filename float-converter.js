@@ -1,9 +1,9 @@
-//decimalRounding(8.075, 2);
+// The arguments are the number you want rounded and to how many decimals you want to round
+decimalRounding(8.075, 2);
 decimalRounding(8.07458, 2);
 //decimalRounding(8.074586815, 8);
 
 
-// The arguments are the number you want rounded and to how many decimals you want to round
 function decimalRounding(value, decimals) {
     console.log("Initial value is " + value)
     let decimalCounting = Math.pow(10, (decimals + 1))
@@ -24,15 +24,19 @@ function decimalRounding(value, decimals) {
         calculation += 5;
         console.log("I manually added 5 to the value, resulting in " + calculation)
         calculation /= decimalCounting
+                console.log("The value before adding back the truncated value is " + calculation)
+        calculation += truncatedValue
 
     } else {
+        calculation = Math.round(value * (10 ** decimals)) / (10 ** decimals)
+        /*
         calculation /= 10;
         calculation = Math.round(calculation);
-        console.log(calculation)
+        console.log("The value is rounded to " + calculation)
         calculation /= decimalCounting / 10;
+        */
     }
-        console.log("The value before readding the truncated value is " + calculation)
-        calculation += truncatedValue
+
         console.log("The final value is " + calculation)
 
     
